@@ -2,20 +2,76 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+body {
+  font-family: Arial, Helvetica, sans-serif;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+@layer utilities {
+  .delay-100 {
+    animation-delay: 100ms;
+  }
+  .delay-300 {
+    animation-delay: 300ms;
+  }
+  .delay-700 {
+    animation-delay: 700ms;
+  }
+  .delay-1000 {
+    animation-delay: 1000ms;
+  }
+
+  /* Text-shadow “neón” en blanco */
+  .text-shadow-neon {
+    text-shadow: 
+      0 0 5px #ffffff,
+      0 0 10px #ffffff,
+      0 0 20px #ffffff;
+  }
+
+  .box-shadow-neon {
+    box-shadow:
+      0 0 5px #01ce05,
+      0 0 20px #01ce05,
+      0 0 50px #01ce05,
+      0 0 100px #01ce05;
+  }
+  .text-stroke-white-60 {
+    -webkit-text-stroke: 1px rgba(255, 255, 255, 0.6);
+  }
+
+  .text-stroke-green {
+    -webkit-text-stroke: 1px #01ce05;
+  }
+
+  .hover-drop-shadow {
+    filter: drop-shadow(0 0 23px #01ce05);
   }
 }
 
-body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+@layer base {
+  :root {
+    --brand: 0 0% 8%;
+    --brand-foreground: 120 100% 60%;
+    --color-1: 0 100% 63%;
+    --color-2: 270 100% 63%;
+    --color-3: 210 100% 63%;
+    --color-4: 195 100% 63%;
+    --color-5: 90 100% 63%;
+  }
+  .dark {
+    --color-1: 0 100% 63%;
+    --color-2: 270 100% 63%;
+    --color-3: 210 100% 63%;
+    --color-4: 195 100% 63%;
+    --color-5: 90 100% 63%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
 }
