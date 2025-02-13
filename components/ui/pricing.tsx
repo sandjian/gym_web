@@ -18,7 +18,7 @@ interface PricingPlan {
   yearlyPrice: string;
   period: string;
   features: string[];
-  description: string;
+  
   buttonText: string;
   href: string;
   isPopular: boolean;
@@ -139,9 +139,7 @@ export function Pricing({
               >
                 {plan.buttonText}
               </Link>
-              <p className="mt-6 text-xs leading-5 text-zinc-500">
-                {plan.description}
-              </p>
+              
             </div>
           </div>
         ))}
